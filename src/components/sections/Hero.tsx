@@ -60,7 +60,7 @@ export default function Hero({ profile }: HeroProps) {
           </p>
 
           <h1 className="max-w-5xl text-balance text-5xl font-black leading-[0.95] text-white md:text-7xl lg:text-8xl xl:text-9xl">
-            {profile.name ?? "Annas"}
+            I'm {profile.name ?? "Annas"}
           </h1>
 
           <div className="mt-4 min-h-9 overflow-hidden md:mt-6 md:min-h-12">
@@ -173,7 +173,10 @@ function getContactLinks(profile: ProfileRow): TextLink[] {
   return links
     .map((link) => ({ ...link, url: normalizeHref(link.url) ?? "" }))
     .filter((link) => link.url.length > 0)
-    .sort((left, right) => getContactLinkOrder(left.label) - getContactLinkOrder(right.label));
+    .sort(
+      (left, right) =>
+        getContactLinkOrder(left.label) - getContactLinkOrder(right.label),
+    );
 }
 
 function getContactLinkOrder(label: string): number {
