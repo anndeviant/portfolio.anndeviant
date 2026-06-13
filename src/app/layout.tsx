@@ -6,9 +6,9 @@ import "lenis/dist/lenis.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Annas | Software Engineer and AI Builder",
+  title: "Annas Sovianto | Software Engineer and AI Builder",
   description:
-    "A premium interactive portfolio for Annas, focused on software engineering, data science, machine learning, and modern web experiences.",
+    "Annas Portfolio, focused on software engineering, data science, machine learning, and modern web experiences.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

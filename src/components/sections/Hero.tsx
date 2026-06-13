@@ -162,14 +162,8 @@ function getContactLinks(profile: ProfileRow): TextLink[] {
   }
 
   const email = jsonString(contact.email);
-  const tel = jsonString(contact.tel);
-
   if (email) {
     links.push({ label: "Email", url: `mailto:${email}` });
-  }
-
-  if (tel) {
-    links.push({ label: "Phone", url: `tel:${tel.replace(/\s+/g, "")}` });
   }
 
   if (isRecord(contact.social)) {
@@ -178,5 +172,23 @@ function getContactLinks(profile: ProfileRow): TextLink[] {
 
   return links
     .map((link) => ({ ...link, url: normalizeHref(link.url) ?? "" }))
-    .filter((link) => link.url.length > 0);
+    .filter((link) => link.url.length > 0)
+    .sort((left, right) => getContactLinkOrder(left.label) - getContactLinkOrder(right.label));
+}
+
+function getContactLinkOrder(label: string): number {
+  const normalized = label.trim().toLowerCase();
+
+  switch (normalized) {
+    case "linkedin":
+      return 0;
+    case "email":
+      return 1;
+    case "github":
+      return 2;
+    case "x":
+      return 3;
+    default:
+      return 4;
+  }
 }

@@ -28,7 +28,10 @@ export default async function Home() {
 
   return (
     <main className="relative overflow-x-clip">
-      <Navbar initials={data.profile.initials ?? "AS"} name={data.profile.name ?? "Annas"} />
+      <Navbar
+        initials={data.profile.initials ?? "AS"}
+        name={data.profile.name ?? "Annas"}
+      />
       <Hero profile={data.profile} />
       <Resume education={data.education} workExperience={data.workExperience} />
       <TechStack />
@@ -36,7 +39,7 @@ export default async function Home() {
       <Events events={data.events} />
       <footer className="px-5 pb-12 pt-10 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-white/10 pt-8 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
-          <p>{data.profile.name ?? "Annas"} / Interactive Portfolio</p>
+          <p>{data.profile.name ?? "Annas"} Sovianto</p>
           <p>Built with Next.js, Supabase, Lenis, and Framer Motion.</p>
         </div>
       </footer>
@@ -51,18 +54,30 @@ async function getPortfolioData(): Promise<PortfolioData> {
     return fallbackPortfolioData;
   }
 
-  const [profileResult, projectsResult, workResult, educationResult, eventsResult] =
-    await Promise.all([
-      supabase.from("profiles").select("*").limit(1).maybeSingle(),
-      supabase.from("projects").select("*").eq("active", "true").order("id", { ascending: true }),
-      supabase.from("work_experience").select("*").order("id", { ascending: true }),
-      supabase.from("education").select("*").order("id", { ascending: true }),
-      supabase
-        .from("events")
-        .select("*")
-        .order("sort_order", { ascending: true, nullsFirst: false })
-        .order("id", { ascending: true }),
-    ]);
+  const [
+    profileResult,
+    projectsResult,
+    workResult,
+    educationResult,
+    eventsResult,
+  ] = await Promise.all([
+    supabase.from("profiles").select("*").limit(1).maybeSingle(),
+    supabase
+      .from("projects")
+      .select("*")
+      .eq("active", "true")
+      .order("id", { ascending: true }),
+    supabase
+      .from("work_experience")
+      .select("*")
+      .order("id", { ascending: true }),
+    supabase.from("education").select("*").order("id", { ascending: true }),
+    supabase
+      .from("events")
+      .select("*")
+      .order("sort_order", { ascending: true, nullsFirst: false })
+      .order("id", { ascending: true }),
+  ]);
 
   const errors = [
     profileResult.error,
@@ -84,8 +99,14 @@ async function getPortfolioData(): Promise<PortfolioData> {
   return {
     profile: profileResult.data ?? fallbackProfile,
     projects: withFallback<ProjectRow>(projectsResult.data, fallbackProjects),
-    workExperience: withFallback<WorkExperienceRow>(workResult.data, fallbackWorkExperience),
-    education: withFallback<EducationRow>(educationResult.data, fallbackEducation),
+    workExperience: withFallback<WorkExperienceRow>(
+      workResult.data,
+      fallbackWorkExperience,
+    ),
+    education: withFallback<EducationRow>(
+      educationResult.data,
+      fallbackEducation,
+    ),
     events: withFallback<EventRow>(eventsResult.data, fallbackEvents),
   };
 }

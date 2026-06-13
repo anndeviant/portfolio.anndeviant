@@ -34,9 +34,18 @@ export default function Navbar({ initials, name }: NavbarProps) {
           onClick={closeMenu}
         >
           <span className="relative block size-9 overflow-hidden border border-white/20 bg-white md:size-11">
-            <Image src="/icon.svg" alt={`${name} logo`} fill priority sizes="44px" className="object-cover" />
+            <Image
+              src="/icon.svg"
+              alt={`${name} logo`}
+              fill
+              priority
+              sizes="44px"
+              className="object-cover"
+            />
           </span>
-          <span className="hidden text-white/70 transition group-hover:text-white sm:block">{name}</span>
+          <span className="hidden text-white/70 transition group-hover:text-white sm:block">
+            {name}
+          </span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex md:gap-2">
@@ -93,7 +102,13 @@ export default function Navbar({ initials, name }: NavbarProps) {
                   onClick={closeMenu}
                 >
                   <span className="relative block size-10 overflow-hidden border border-white/20 bg-white">
-                    <Image src="/icon.svg" alt={`${name} logo`} fill sizes="44px" className="object-cover" />
+                    <Image
+                      src="/icon.svg"
+                      alt={`${name} logo`}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                    />
                   </span>
                   <span>{initials}</span>
                 </Link>
@@ -113,7 +128,11 @@ export default function Navbar({ initials, name }: NavbarProps) {
                     key={item.href}
                     initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.05 + index * 0.04, duration: 0.3, ease: "easeOut" }}
+                    transition={{
+                      delay: 0.05 + index * 0.04,
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
                   >
                     <Link
                       href={item.href}
@@ -121,14 +140,16 @@ export default function Navbar({ initials, name }: NavbarProps) {
                       onClick={closeMenu}
                     >
                       <span>{item.label}</span>
-                      <span className="text-sm text-white/40">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="text-sm text-white/40">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
                     </Link>
                   </motion.div>
                 ))}
               </div>
 
               <p className="border-t border-white/10 pt-5 text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
-                {name} / Interactive Portfolio
+                {name} Sovianto
               </p>
             </motion.aside>
           </>
