@@ -64,7 +64,7 @@ export default function Resume({ education, workExperience }: ResumeProps) {
             <ResumeCategory
               count={workItems.length}
               items={workItems}
-              label="Work Experience"
+              label="Work Experiences"
             />
           </div>
         </div>
