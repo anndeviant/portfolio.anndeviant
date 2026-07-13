@@ -8,6 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-anndeviant.pages.dev"),
   title: "Annas Sovianto | Software Engineer and AI Builder",
+  authors: [{ name: "Annas Sovianto" }],
+  creator: "Annas Sovianto",
+  publisher: "Annas Sovianto",
   description:
     "Annas Portfolio, focused on software engineering, data science, machine learning, and modern web experiences.",
   alternates: {
