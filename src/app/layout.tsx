@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     siteName: "Annas Portfolio",
     images: [
       {
-        url: "/assets/preview-image.png",
+        url: "/assets/preview-img.png",
         width: 1200,
-        height: 630,
+        height: 627,
         alt: "Annas Sovianto",
       },
     ],
