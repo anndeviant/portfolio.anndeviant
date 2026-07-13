@@ -7,14 +7,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-anndeviant.pages.dev"),
-  title: "I'm Annas - Software Engineer and AI Builder | Portfolio",
+  title: "Annas Sovianto | Software Engineer and AI Builder",
   description:
     "Annas Portfolio, focused on software engineering, data science, machine learning, and modern web experiences.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "I'm Annas - Software Engineer and AI Builder | Portfolio",
+    title: "Annas Sovianto | Software Engineer and AI Builder",
     description:
       "Annas Portfolio, focused on software engineering, data science, machine learning, and modern web experiences.",
     url: "https://portfolio-anndeviant.pages.dev/",
