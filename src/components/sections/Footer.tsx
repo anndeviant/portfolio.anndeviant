@@ -1,3 +1,4 @@
+import WhoAmITrigger from "../WhoAmITrigger";
 import Link from "next/link";
 
 import { normalizeHref } from "../../lib/data-utils";
@@ -63,6 +64,7 @@ export default function Footer({ profile }: FooterProps) {
                     {item.label}
                   </Link>
                 ))}
+                <WhoAmITrigger />
               </div>
             </div>
 

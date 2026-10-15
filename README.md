@@ -51,9 +51,14 @@ Create a `.env.local` file with:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Optional / Who Am I Secret Vault
+VAULT_PASSCODE=your_secret_passcode
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_secret
 ```
 
-The app safely returns fallback data when either variable is missing.
+The app safely returns fallback data when database variables are missing.
+For `/whoami` storage management in Supabase `media/drive`, configure `VAULT_PASSCODE` and `SUPABASE_SERVICE_ROLE_KEY`.
 
 ## Local Development
 
